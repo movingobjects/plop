@@ -4,8 +4,11 @@
 }
 
 body {
+
+  --color-primary: #66f;
+
   margin: 0;
-  padding: 25px;
+  padding: 50px;
   height: 100vh;
 
   font-family:
@@ -24,59 +27,73 @@ textarea {
   resize: none;
 
   width: 100%;
-  height: calc(100% - 200px);
-  padding: 15px;
+  height: 100%;
+  padding: 25px;
 
-  font-weight: bold;
+  color: black;
   font-family:
     SFMono-Regular,
     Consolas,
     Liberation Mono,
     Menlo,
     monospace;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 20px;
 
-  border-radius: 5px;
-  border: 2px solid #ccc;
+  border-radius: 25px;
+  border: 3px solid transparent;
   margin-bottom: 15px;
 
 }
 
+textarea:focus,
+body.text-modified textarea {
+  outline: none;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 button {
-  margin: 0;
-  width: 100%;
+  pointer-events: none;
+  cursor: pointer;
+
+  position: absolute;
+  bottom: 75px;
+  right: 75px;
+
   background: none;
-  border-radius: 5px;
-  padding: 15px;
-  font-size: 15px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+  background-color: var(--color-primary);
+
+  color: white;
+  font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border: 2px solid #ccc;
 
-  pointer-events: none;
-  color: #aaa;
+  transform: scale(0);
 
-}
+  transition:
+    transform 0.15s ease;
 
-body.text-modified textarea {
-  border-color: #73f;
-  color: #73f;
-}
-
-body.text-modified button:hover {
-  background: #73f;
-  border-color: #73f;
-  color: white;
-}
-
-body.text-modified button:active {
-  opacity: 0.5;
 }
 
 body.text-modified button {
   pointer-events: auto;
-  border-color: #73f;
-  color: #73f;
-  cursor: pointer;
+  transform: scale(1);
 }
+
+body.text-modified button:hover {
+  background: white;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+body.text-modified button:active {
+  transform: scale(0.9);
+  transition: none;
+}
+

@@ -9,12 +9,18 @@ var savedText = textInput.value;
 /////////////////////////////////////////////
 
 saveBtn.addEventListener('click', function() {
-  saveText(textInput.value);
+  saveText();
 });
 
 textInput.addEventListener('input', function() {
   updateModified();
 });
+
+document.addEventListener('keydown', function(e) {
+  if (e.metaKey && e.key === 'Enter') {
+    saveText();
+  }
+})
 
 /////////////////////////////////////////////
 
@@ -22,7 +28,9 @@ function updateModified() {
   document.body.classList.toggle('text-modified', textInput.value !== savedText);
 }
 
-function saveText(text) {
+function saveText() {
+
+  var text = textInput.value;
 
   var xhr = new XMLHttpRequest();
 
@@ -30,7 +38,9 @@ function saveText(text) {
     var isSaved = (xhr.readyState === 4) && (xhr.status === 200);
     if (isSaved) {
       savedText = textInput.value;
-      updateModified();
+
+      setTimeout(updateModified, 250);
+
     }
   }
 

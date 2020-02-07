@@ -25,7 +25,7 @@
 
   <body>
 
-    <textarea id="text-input"><?php echo ($filetext); ?></textarea>
+    <textarea id="text-input" placeholder="..."><?php echo ($filetext); ?></textarea>
 
     <button id="save-btn">Plop</button>
 
