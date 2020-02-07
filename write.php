@@ -4,7 +4,7 @@
     file_put_contents($file, $data);
   }
 
-  $MAX_LEN = 1000;
+  $MAX_LEN = 100000;
   $text = $_POST["text"];
 
   if (strlen($text) > $MAX_LEN) {
