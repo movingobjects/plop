@@ -1,3 +1,3 @@
 # Plop
 
-A dumb lil PHP tool to read/write text to a file on a server. Almost certainly a security risk.
+A dumb lil tool to read/write text to a file. Almost certainly a security risk.
